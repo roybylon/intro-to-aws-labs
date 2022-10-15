@@ -11,7 +11,7 @@ click on create bucket
 
 Step 3
 go to the bucket you just created and upload the download files from the group "coffee.jpg", "index.html", "error.html" and  "extra-page.html"
-click on properties tab, scrol down to static website hosting, click on edit
+click on properties tab, scroll down to static website hosting, click on edit
 check enable
 type index.html, type error.html and click save
 
@@ -26,10 +26,39 @@ on principal type "*"
 on action checked "GetObject"
 paste the copied ARN and add "/*" at the end (arn:aws:s3:::demo-george-lab13.com/*)
 click on "add statement", click on generate policy and copy the generated policy
-go back to buckt policy and paste the generated policy (ensure that your cusor is at the beginning no space at the first line)
+go back to bucket policy and paste the generated policy (ensure that your cursor is at the beginning no space at the first line)
 click on properties, scroll to static website hosting and copy the url below, paste it on the group for 2 or more members to confirmed
 also paste on the browser and screenshot to the group
 
 Step 5
 Edit the file in VSCode editor, save and push to your personal remote repo.
+
+My Note
+Sample bucket policy
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1665854228600",
+    "Statement": [
+        {
+            "Sid": "Stmt1665854226499",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::demo-ayobami-lab13.com/*"
+        }
+    ]
+}
+
+{
+"Version":"2012-10-17",
+"Statement":[
+ {
+   "Sid":"AddPerm",
+   "Effect":"Allow",
+   "Principal": "*",
+   "Action":["s3:GetObject"],
+   "Resource":["arn:aws:s3:::your-website/*"]
+ }
+]
+}
 
